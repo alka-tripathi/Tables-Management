@@ -37,9 +37,18 @@ function TableButton() {
         })}
       </div>
       <hr />
-      <div>
+      <div
+        style={{
+          display: 'flex',
+          gap: '20px', // space between cards
+          flexWrap: 'wrap', // allow wrapping to next line
+          justifyContent: 'center', // optional: centers horizontally
+          
+        }}
+      >
         {activeTables.map((num) => (
           <TableCard
+           
             key={num}
             tableNumber={num}
             onDelete={handleDelete}
