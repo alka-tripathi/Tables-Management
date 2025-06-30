@@ -1,10 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
 import TableButton from './TableButton';
 import Button from '@mui/material/Button';
 import DeleteIcon from '@mui/icons-material/Delete';
 import TableBarIcon from '@mui/icons-material/TableBar';
 
+const coffeeMenu = [
+  { name: 'Espresso', price: 120 },
+  { name: 'Latte', price: 150 },
+  { name: 'Cappuccino', price: 160 },
+  { name: 'Mocha', price: 170 },
+];
+
 const TableCard = ({ tableNumber, onDelete }) => {
+  const [selectCoffee, setSelectedCoffee] = useState('');
+  const [quantity, setQuantity] = useState(1);
+
+
+  //total
+  const getTotal=()=>{
+    const cofee=coffeeMenu.
+  }
   return (
     <div
       style={{
@@ -36,21 +51,34 @@ const TableCard = ({ tableNumber, onDelete }) => {
           class="form-select"
           aria-label="Default select example"
           style={{ width: '50%' }}
+          value={selectCoffee}
+          onChange={(e) => setSelectedCoffee(e.target.value)}
         >
-          <option selected>Drinks</option>
-          <option value="1">One</option>
+          <option selected>Coffee</option>
+          {/* <option value="1">One</option>
           <option value="2">Two</option>
-          <option value="3">Three</option>
+          <option value="3">Three</option> */}
+          {coffeeMenu.map((coffee) => (
+            <option
+              key={coffee.name}
+              value={coffee.name}
+            >
+              {coffee.name} - &#8377;{coffee.price}
+            </option>
+          ))}
         </select>
         <select
-          class="form-select"
+          className="form-select"
           aria-label="Default select example"
-          style={{ width: '20%' }}
+          style={{ width: '13%' }}
+          value={quantity}
+          onChange={(e) => setQuantity(Number(e.target.value))}
         >
-          <option selected>Qyt</option>
-          <option value="1">One</option>
-          <option value="2">Two</option>
-          <option value="3">Three</option>
+    {[1, 2, 3, 4, 5].map((no) => (
+    <option key={no} value={no}>
+      {no}
+    </option>
+  ))}
         </select>
       </div>
 

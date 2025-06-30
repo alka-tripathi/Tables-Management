@@ -1,0 +1,50 @@
+[
+  {
+    "name": "Espresso",
+    "price": 120,
+    "category": "Hot",
+    "imageUrl": "https://example.com/images/espresso.jpg"
+  },
+  {
+    "name": "Americano",
+    "price": 130,
+    "category": "Hot",
+    "imageUrl": "https://example.com/images/americano.jpg"
+  },
+  {
+    "name": "Latte",
+    "price": 150,
+    "category": "Hot",
+    "imageUrl": "https://example.com/images/latte.jpg"
+  },
+  {
+    "name": "Cappuccino",
+    "price": 160,
+    "category": "Hot",
+    "imageUrl": "https://example.com/images/cappuccino.jpg"
+  },
+  {
+    "name": "Mocha",
+    "price": 170,
+    "category": "Hot",
+    "imageUrl": "https://example.com/images/mocha.jpg"
+  },
+  {
+    "name": "Cold Brew",
+    "price": 150,
+    "category": "Cold",
+    "imageUrl": "https://example.com/images/coldbrew.jpg"
+  },
+  {
+    "name": "Frappuccino",
+    "price": 180,
+    "category": "Cold",
+    "imageUrl": "https://example.com/images/frappuccino.jpg"
+  },
+  {
+    "name": "Affogato",
+    "price": 180,
+    "category": "Cold",
+    "imageUrl": "https://example.com/images/affogato.jpg"
+  }
+]

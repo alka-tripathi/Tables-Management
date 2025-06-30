@@ -46,7 +46,7 @@ export default function Navbar() {
                 className="nav-link"
                 to="/pricing"
               >
-                Pricing
+                Menu
               </Link>
               <Link
                 className="nav-link disabled"
