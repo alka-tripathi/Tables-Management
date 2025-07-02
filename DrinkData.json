@@ -1,0 +1,62 @@
+[
+  {
+    "name": "Coca Cola",
+    "price": 40,
+    "imageUrl": "https://example.com/images/coca_cola.jpg"
+  },
+  {
+    "name": "Pepsi",
+    "price": 35,
+    "imageUrl": "https://example.com/images/pepsi.jpg"
+  },
+  {
+    "name": "Orange Juice",
+    "price": 60,
+    "imageUrl": "https://example.com/images/orange_juice.jpg"
+  },
+  {
+    "name": "Lemonade",
+    "price": 30,
+    "imageUrl": "https://example.com/images/lemonade.jpg"
+  },
+  {
+    "name": "Iced Tea",
+    "price": 50,
+    "imageUrl": "https://example.com/images/iced_tea.jpg"
+  },
+  {
+    "name": "Mango Shake",
+    "price": 80,
+    "imageUrl": "https://example.com/images/mango_shake.jpg"
+  },
+  {
+    "name": "Strawberry Shake",
+    "price": 85,
+    "imageUrl": "https://example.com/images/strawberry_shake.jpg"
+  },
+  {
+    "name": "Chocolate Shake",
+    "price": 90,
+    "imageUrl": "https://example.com/images/chocolate_shake.jpg"
+  },
+  {
+    "name": "Vanilla Shake",
+    "price": 75,
+    "imageUrl": "https://example.com/images/vanilla_shake.jpg"
+  },
+  {
+    "name": "Banana Shake",
+    "price": 70,
+    "imageUrl": "https://example.com/images/banana_shake.jpg"
+  },
+  {
+    "name": "Buttermilk",
+    "price": 25,
+    "imageUrl": "https://example.com/images/buttermilk.jpg"
+  },
+  {
+    "name": "Water",
+    "price": 20,
+    "imageUrl": "https://example.com/images/water.jpg"
+  }
+]

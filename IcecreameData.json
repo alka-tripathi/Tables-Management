@@ -1,0 +1,62 @@
+[
+  {
+    "name": "Vanilla Ice Cream",
+    "price": 50,
+    "imageUrl": "https://example.com/images/vanilla_ice_cream.jpg"
+  },
+  {
+    "name": "Chocolate Ice Cream",
+    "price": 55,
+    "imageUrl": "https://example.com/images/chocolate_ice_cream.jpg"
+  },
+  {
+    "name": "Strawberry Ice Cream",
+    "price": 60,
+    "imageUrl": "https://example.com/images/strawberry_ice_cream.jpg"
+  },
+  {
+    "name": "Mango Ice Cream",
+    "price": 58,
+    "imageUrl": "https://example.com/images/mango_ice_cream.jpg"
+  },
+  {
+    "name": "Butterscotch Ice Cream",
+    "price": 65,
+    "imageUrl": "https://example.com/images/butterscotch_ice_cream.jpg"
+  },
+  {
+    "name": "Black Currant Ice Cream",
+    "price": 70,
+    "imageUrl": "https://example.com/images/black_currant_ice_cream.jpg"
+  },
+  {
+    "name": "Pistachio Ice Cream",
+    "price": 68,
+    "imageUrl": "https://example.com/images/pistachio_ice_cream.jpg"
+  },
+  {
+    "name": "Kesar Pista Ice Cream",
+    "price": 72,
+    "imageUrl": "https://example.com/images/kesar_pista_ice_cream.jpg"
+  },
+  {
+    "name": "Rajbhog Ice Cream",
+    "price": 75,
+    "imageUrl": "https://example.com/images/rajbhog_ice_cream.jpg"
+  },
+  {
+    "name": "Kulfi",
+    "price": 60,
+    "imageUrl": "https://example.com/images/kulfi.jpg"
+  },
+  {
+    "name": "Tender Coconut Ice Cream",
+    "price": 68,
+    "imageUrl": "https://example.com/images/tender_coconut_ice_cream.jpg"
+  },
+  {
+    "name": "Caramel Crunch Ice Cream",
+    "price": 70,
+    "imageUrl": "https://example.com/images/caramel_crunch_ice_cream.jpg"
+  }
+]
