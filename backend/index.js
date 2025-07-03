@@ -11,3 +11,5 @@ app.use(express.json());
 app.listen(port, (req, res) => {
   console.log(`connect to ${port}`);
 });
+
+app.use('/api/restaurant', require('./Routes/GetDrinksData.js'));
