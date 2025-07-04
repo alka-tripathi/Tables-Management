@@ -8,18 +8,21 @@ import 'bootstrap/dist/js/bootstrap.bundle.min';
 import 'bootstrap-dark-5/dist/css/bootstrap-dark.min.css';
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { DrinkProvider } from '../../backend/ContentContext/DrinkContent';
 
 function App() {
   return (
-    <Router>
-      <Navbar></Navbar>
-      <Routes>
-        <Route
-          path="/"
-          element={<Home></Home>}
-        ></Route>
-      </Routes>
-    </Router>
+    <DrinkProvider>
+      <Router>
+        <Navbar></Navbar>
+        <Routes>
+          <Route
+            path="/"
+            element={<Home></Home>}
+          ></Route>
+        </Routes>
+      </Router>
+    </DrinkProvider>
   );
 }
 

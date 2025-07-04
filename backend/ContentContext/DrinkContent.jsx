@@ -1,11 +1,11 @@
-import React, { useState, useEffect, createContext, useContext } from 'react';
+import React, { useState, useEffect, createContext } from 'react';
 
 // Step 1: Create context
 export const DrinkContext = createContext();
 
 // Step 2: Create provider
 export const DrinkProvider = ({ children }) => {
-  const [drink, setDrinks] = useState([]);
+  const [drinks, setDrinks] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -13,7 +13,7 @@ export const DrinkProvider = ({ children }) => {
         const res = await fetch('http://localhost:5000/api/restaurant');
         const data = await res.json();
         if (data.success) {
-          setDrinks(data.drinkdata);
+          setDrinks(data.drinkdata.name);
         }
       } catch (err) {
         console.log('Error fetching drinks in context API: ' + err.message);
@@ -24,10 +24,6 @@ export const DrinkProvider = ({ children }) => {
   }, []);
 
   return (
-    <DrinkContext.Provider value={{ drink }}>
-      {children}
-    </DrinkContext.Provider>
+    <DrinkContext.Provider value={{ drinks}}>{children}</DrinkContext.Provider>
   );
 };
-
-

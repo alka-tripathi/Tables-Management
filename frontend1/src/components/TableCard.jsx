@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import TableButton from './TableButton';
 import Button from '@mui/material/Button';
 import DeleteIcon from '@mui/icons-material/Delete';
 import TableBarIcon from '@mui/icons-material/TableBar';
+
+import { DrinkContext } from '../../../backend/ContentContext/DrinkContent';
 
 const coffeeMenu = [
   { name: 'Espresso', price: 120 },
@@ -22,21 +24,21 @@ const iceCreamMenu = [
   { name: 'Kulfi Stick', price: 70 },
 ];
 
-const drinksMenu=[
-  {name:'Coca Cola',price:40},
-  {name:'Pepsi', price:35},
-  {name:'Orange Juice',price:60},
-  {name:'Lemonande' ,price:30},
-  {name:'Iced Tea',price:50},
-  {name:'Mango shake',price:80},
-  {name:'Strawberry Shake' ,price:85},
-  {name:'Chocolate Shake'}
-  
-]
+const drinksMenu = [
+  { name: 'Coca Cola', price: 40 },
+  { name: 'Pepsi', price: 35 },
+  { name: 'Orange Juice', price: 60 },
+  { name: 'Lemonande', price: 30 },
+  { name: 'Iced Tea', price: 50 },
+  { name: 'Mango shake', price: 80 },
+  { name: 'Strawberry Shake', price: 85 },
+  { name: 'Chocolate Shake' },
+];
 
 //gettotal of coffee
 
 const TableCard = ({ tableNumber, onDelete }) => {
+  const { drinks } = useContext(DrinkContext);
   const [selectCoffee, setSelectedCoffee] = useState('');
   // coffee
   const [quantity, setQuantity] = useState(1);
@@ -44,20 +46,18 @@ const TableCard = ({ tableNumber, onDelete }) => {
   const [selectIcecreame, setSelectIcecream] = useState('');
   const [icquantity, seticQuantity] = useState(1);
 
-  const [selectDrrink, selectedDrink]=useState('');
-  const [drinkQuantity,selectedDrinkQuantity]=useState(1);
+  const [selectDrrink, selectedDrink] = useState('');
+  const [drinkQuantity, selectedDrinkQuantity] = useState(1);
 
   const getItemPrice = (menu, itemName) => {
     const get = coffeeMenu.find((i) => itemName === i.name);
     return get ? get.price : 0;
   };
 
-  const coffeeTotal=  quantity * getItemPrice(coffeeMenu, selectCoffee);
-  const iceCTotal = quantity * getItemPrice(iceCreamMenu,selectIcecreame);
+  const coffeeTotal = quantity * getItemPrice(coffeeMenu, selectCoffee);
+  const iceCTotal = quantity * getItemPrice(iceCreamMenu, selectIcecreame);
 
-  const total =coffeeTotal+iceCTotal;
-   
-  
+  const total = coffeeTotal + iceCTotal;
 
   return (
     <div
@@ -101,7 +101,6 @@ const TableCard = ({ tableNumber, onDelete }) => {
               {coffee.name} - &#8377;{coffee.price}
             </option>
           ))}
-
         </select>
         <select
           className="form-select"
@@ -119,7 +118,7 @@ const TableCard = ({ tableNumber, onDelete }) => {
             </option>
           ))}
         </select>
-                  <p>Total:{getItemPrice(coffeeMenu, selectCoffee)*quantity}</p>
+        <p>Total:{getItemPrice(coffeeMenu, selectCoffee) * quantity}</p>
       </div>
 
       <div
@@ -184,12 +183,16 @@ const TableCard = ({ tableNumber, onDelete }) => {
           aria-label="Default select example"
           style={{ width: '50%' }}
           value={drinkQuantity}
-          onChange={selectedDrink((e)=> e.target.name)}
+          onChange={selectedDrink((e) => e.target.name)}
         >
-          <option value="">Select Drink</option>
-        {
-
-        }
+          {drinks.map((drink) => (
+            <option
+              key={drink.name}
+              value={drink.price}
+            >
+              {drink.name} - ${drink.price}
+            </option>
+          ))}
         </select>
         <p></p>
         <select
