@@ -1,10 +1,9 @@
 import React, { useState, useContext } from 'react';
-import TableButton from './TableButton';
 import Button from '@mui/material/Button';
 import DeleteIcon from '@mui/icons-material/Delete';
 import TableBarIcon from '@mui/icons-material/TableBar';
 
-import { DrinkContext } from '../../../backend/ContentContext/DrinkContent';
+import { DrinkContext } from '../../ContentContext/DrinkContent';
 
 const coffeeMenu = [
   { name: 'Espresso', price: 120 },
@@ -24,40 +23,28 @@ const iceCreamMenu = [
   { name: 'Kulfi Stick', price: 70 },
 ];
 
-const drinksMenu = [
-  { name: 'Coca Cola', price: 40 },
-  { name: 'Pepsi', price: 35 },
-  { name: 'Orange Juice', price: 60 },
-  { name: 'Lemonande', price: 30 },
-  { name: 'Iced Tea', price: 50 },
-  { name: 'Mango shake', price: 80 },
-  { name: 'Strawberry Shake', price: 85 },
-  { name: 'Chocolate Shake' },
-];
-
-//gettotal of coffee
-
 const TableCard = ({ tableNumber, onDelete }) => {
   const { drinks } = useContext(DrinkContext);
-  const [selectCoffee, setSelectedCoffee] = useState('');
-  // coffee
-  const [quantity, setQuantity] = useState(1);
 
-  const [selectIcecreame, setSelectIcecream] = useState('');
-  const [icquantity, seticQuantity] = useState(1);
+  const [selectedCoffee, setSelectedCoffee] = useState('');
+  const [coffeeQty, setCoffeeQty] = useState(1);
 
-  const [selectDrrink, selectedDrink] = useState('');
-  const [drinkQuantity, selectedDrinkQuantity] = useState(1);
+  const [selectedIceCream, setSelectedIceCream] = useState('');
+  const [iceCreamQty, setIceCreamQty] = useState(1);
+
+  const [selectedDrink, setSelectedDrink] = useState('');
+  const [drinkQty, setDrinkQty] = useState(1);
 
   const getItemPrice = (menu, itemName) => {
-    const get = coffeeMenu.find((i) => itemName === i.name);
-    return get ? get.price : 0;
+    const item = menu.find((i) => i.name === itemName);
+    return item ? item.price : 0;
   };
 
-  const coffeeTotal = quantity * getItemPrice(coffeeMenu, selectCoffee);
-  const iceCTotal = quantity * getItemPrice(iceCreamMenu, selectIcecreame);
+  const coffeeTotal = coffeeQty * getItemPrice(coffeeMenu, selectedCoffee);
+  const iceCreamTotal = iceCreamQty * getItemPrice(iceCreamMenu, selectedIceCream);
+  const drinkTotal = drinkQty * getItemPrice(drinks || [], selectedDrink);
 
-  const total = coffeeTotal + iceCTotal;
+  const total = coffeeTotal + iceCreamTotal + drinkTotal;
 
   return (
     <div
@@ -66,7 +53,7 @@ const TableCard = ({ tableNumber, onDelete }) => {
         padding: '10px',
         marginTop: '20px',
         width: '40%',
-        height: '50vh',
+        minHeight: '50vh',
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'space-evenly',
@@ -74,146 +61,109 @@ const TableCard = ({ tableNumber, onDelete }) => {
       }}
     >
       <h3 style={{ color: '#263238' }}>
-        <TableBarIcon></TableBarIcon> Table {tableNumber}
+        <TableBarIcon /> Table {tableNumber}
       </h3>
 
-      <div
-        style={{
-          display: 'flex',
-          justifyContent: 'space-evenly',
-        }}
-      >
-        {/* select coffee */}
-
+      {/* Coffee Section */}
+      <div style={{ display: 'flex', justifyContent: 'space-evenly' }}>
         <select
-          class="form-select"
-          aria-label="Default select example"
+          className="form-select"
           style={{ width: '50%' }}
-          value={selectCoffee}
+          value={selectedCoffee}
           onChange={(e) => setSelectedCoffee(e.target.value)}
         >
           <option value="">Select Coffee</option>
           {coffeeMenu.map((coffee) => (
-            <option
-              key={coffee.name}
-              value={coffee.name}
-            >
-              {coffee.name} - &#8377;{coffee.price}
+            <option key={coffee.name} value={coffee.name}>
+              {coffee.name} - ₹{coffee.price}
             </option>
           ))}
         </select>
         <select
           className="form-select"
-          aria-label="Default select example"
           style={{ width: '13%' }}
-          value={quantity}
-          onChange={(e) => setQuantity(Number(e.target.value))}
+          value={coffeeQty}
+          onChange={(e) => setCoffeeQty(Number(e.target.value))}
         >
           {[1, 2, 3, 4, 5].map((no) => (
-            <option
-              key={no}
-              value={no}
-            >
+            <option key={no} value={no}>
               {no}
             </option>
           ))}
         </select>
-        <p>Total:{getItemPrice(coffeeMenu, selectCoffee) * quantity}</p>
+        <p>Total: ₹{coffeeTotal}</p>
       </div>
 
-      <div
-        style={{
-          display: 'flex',
-          justifyContent: 'space-evenly',
-        }}
-      >
-        {/* select ice-creame */}
-
+      {/* Ice Cream Section */}
+      <div style={{ display: 'flex', justifyContent: 'space-evenly' }}>
         <select
           className="form-select"
-          aria-label="Default select example"
           style={{ width: '50%' }}
-          value={selectIcecreame}
-          onChange={(e) => setSelectIcecream(e.target.value)}
+          value={selectedIceCream}
+          onChange={(e) => setSelectedIceCream(e.target.value)}
         >
-          <option value="">Ice Creame</option>
+          <option value="">Select Ice Cream</option>
           {iceCreamMenu.map((ic) => (
-            <option
-              value={ic.name}
-              key={ic.name}
-            >
-              {ic.name} - &#8377;{ic.price}
+            <option key={ic.name} value={ic.name}>
+              {ic.name} - ₹{ic.price}
             </option>
           ))}
         </select>
         <select
           className="form-select"
-          aria-label="Default select example"
           style={{ width: '13%' }}
-          value={icquantity}
-          onChange={(e) => {
-            seticQuantity(Number(e.target.value));
-          }}
+          value={iceCreamQty}
+          onChange={(e) => setIceCreamQty(Number(e.target.value))}
         >
-          {/* <option selected>Qyt</option> */}
           {[1, 2, 3, 4, 5].map((no) => (
-            <option
-              value={no}
-              key={no}
-              selected
-            >
+            <option key={no} value={no}>
               {no}
             </option>
           ))}
         </select>
+        <p>Total: ₹{iceCreamTotal}</p>
       </div>
 
-      {/* ice creame */}
-
-      <div
-        style={{
-          display: 'flex',
-          justifyContent: 'space-evenly',
-        }}
-      >
-        {/* select drink*/}
-
+      {/* Drinks Section */}
+      <div style={{ display: 'flex', justifyContent: 'space-evenly' }}>
         <select
           className="form-select"
-          aria-label="Default select example"
           style={{ width: '50%' }}
-          value={drinkQuantity}
-          onChange={selectedDrink((e) => e.target.name)}
+          value={selectedDrink}
+          onChange={(e) => setSelectedDrink(e.target.value)}
         >
-          {drinks.map((drink) => (
-            <option
-              key={drink.name}
-              value={drink.price}
-            >
-              {drink.name} - ${drink.price}
+          <option value="">Select Drink</option>
+          {drinks?.map((drink, index) =>
+            drink?.name ? (
+              <option key={index} value={drink.name}>
+                {drink.name} - ₹{drink.price}
+              </option>
+            ) : null
+          )}
+        </select>
+        <select
+          className="form-select"
+          style={{ width: '13%' }}
+          value={drinkQty}
+          onChange={(e) => setDrinkQty(Number(e.target.value))}
+        >
+          {[1, 2, 3, 4, 5].map((no) => (
+            <option key={no} value={no}>
+              {no}
             </option>
           ))}
         </select>
-        <p></p>
-        <select
-          class="form-select"
-          aria-label="Default select example"
-          style={{ width: '20%' }}
-        >
-          <option selected>Qyt</option>
-          <option value="1">One</option>
-          <option value="2">Two</option>
-          <option value="3">Three</option>
-        </select>
-        <p>Total:{total}</p>
+        <p>Total: ₹{drinkTotal}</p>
       </div>
+
+      {/* Final Total and Actions */}
       <div
         style={{
           display: 'flex',
           justifyContent: 'center',
-          alignContent: 'center',
           gap: '10px',
-          height: '30px',
+          alignItems: 'center',
+          marginTop: '10px',
         }}
       >
         <Button
@@ -225,7 +175,7 @@ const TableCard = ({ tableNumber, onDelete }) => {
           Clear Table
         </Button>
         <Button color="secondary">Pay Now</Button>
-        <p>Total:</p>
+        <p><strong>Total: ₹{total}</strong></p>
       </div>
     </div>
   );

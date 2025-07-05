@@ -13,7 +13,7 @@ export const DrinkProvider = ({ children }) => {
         const res = await fetch('http://localhost:5000/api/restaurant');
         const data = await res.json();
         if (data.success) {
-          setDrinks(data.drinkdata.name);
+          setDrinks(data.drinkdata);
         }
       } catch (err) {
         console.log('Error fetching drinks in context API: ' + err.message);

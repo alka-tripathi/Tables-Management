@@ -6,6 +6,7 @@ const Drink = require('../models/DrinksModel');
 router.get('/', async (req, res) => {
   try {
     const drinkdata = await Drink.find();
+    console.log(drinkdata);
     res.status(200).json({ success: true, drinkdata });
   } catch (err) {
     console.log('Error Fetching data');
