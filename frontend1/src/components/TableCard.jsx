@@ -4,6 +4,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import TableBarIcon from '@mui/icons-material/TableBar';
 
 import { DrinkContext } from '../../ContentContext/DrinkContent';
+import { IcecreamContext } from '../../ContentContext/IceCreamContext';
 
 const coffeeMenu = [
   { name: 'Espresso', price: 120 },
@@ -12,19 +13,20 @@ const coffeeMenu = [
   { name: 'Mocha', price: 170 },
 ];
 
-const iceCreamMenu = [
-  { name: 'Vanilla Scoop', price: 80 },
-  { name: 'Chocolate Chip', price: 90 },
-  { name: 'Strawberry Swirl', price: 85 },
-  { name: 'Butterscotch Delight', price: 95 },
-  { name: 'Mango Mania', price: 100 },
-  { name: 'Cookies & Cream', price: 110 },
-  { name: 'Black Currant', price: 105 },
-  { name: 'Kulfi Stick', price: 70 },
-];
+// const iceCreamMenu = [
+//   { name: 'Vanilla Scoop', price: 80 },
+//   { name: 'Chocolate Chip', price: 90 },
+//   { name: 'Strawberry Swirl', price: 85 },
+//   { name: 'Butterscotch Delight', price: 95 },
+//   { name: 'Mango Mania', price: 100 },
+//   { name: 'Cookies & Cream', price: 110 },
+//   { name: 'Black Currant', price: 105 },
+//   { name: 'Kulfi Stick', price: 70 },
+// ];
 
 const TableCard = ({ tableNumber, onDelete }) => {
   const { drinks } = useContext(DrinkContext);
+  const { icecreame } = useContext(IcecreamContext);
 
   const [selectedCoffee, setSelectedCoffee] = useState('');
   const [coffeeQty, setCoffeeQty] = useState(1);
@@ -41,7 +43,8 @@ const TableCard = ({ tableNumber, onDelete }) => {
   };
 
   const coffeeTotal = coffeeQty * getItemPrice(coffeeMenu, selectedCoffee);
-  const iceCreamTotal = iceCreamQty * getItemPrice(iceCreamMenu, selectedIceCream);
+  const iceCreamTotal =
+    iceCreamQty * getItemPrice(iceCreamMenu, selectedIceCream);
   const drinkTotal = drinkQty * getItemPrice(drinks || [], selectedDrink);
 
   const total = coffeeTotal + iceCreamTotal + drinkTotal;
@@ -74,7 +77,10 @@ const TableCard = ({ tableNumber, onDelete }) => {
         >
           <option value="">Select Coffee</option>
           {coffeeMenu.map((coffee) => (
-            <option key={coffee.name} value={coffee.name}>
+            <option
+              key={coffee.name}
+              value={coffee.name}
+            >
               {coffee.name} - ₹{coffee.price}
             </option>
           ))}
@@ -86,7 +92,10 @@ const TableCard = ({ tableNumber, onDelete }) => {
           onChange={(e) => setCoffeeQty(Number(e.target.value))}
         >
           {[1, 2, 3, 4, 5].map((no) => (
-            <option key={no} value={no}>
+            <option
+              key={no}
+              value={no}
+            >
               {no}
             </option>
           ))}
@@ -103,11 +112,16 @@ const TableCard = ({ tableNumber, onDelete }) => {
           onChange={(e) => setSelectedIceCream(e.target.value)}
         >
           <option value="">Select Ice Cream</option>
-          {iceCreamMenu.map((ic) => (
-            <option key={ic.name} value={ic.name}>
-              {ic.name} - ₹{ic.price}
-            </option>
-          ))}
+          {icecreame?.map((ic, index) =>
+            ic?.name ? (
+              <option
+                key={index}
+                value={ic.name}
+              >
+                {ic.name} - ₹{ic.price}
+              </option>
+            ) : null
+          )}
         </select>
         <select
           className="form-select"
@@ -116,7 +130,10 @@ const TableCard = ({ tableNumber, onDelete }) => {
           onChange={(e) => setIceCreamQty(Number(e.target.value))}
         >
           {[1, 2, 3, 4, 5].map((no) => (
-            <option key={no} value={no}>
+            <option
+              key={no}
+              value={no}
+            >
               {no}
             </option>
           ))}
@@ -135,7 +152,10 @@ const TableCard = ({ tableNumber, onDelete }) => {
           <option value="">Select Drink</option>
           {drinks?.map((drink, index) =>
             drink?.name ? (
-              <option key={index} value={drink.name}>
+              <option
+                key={index}
+                value={drink.name}
+              >
                 {drink.name} - ₹{drink.price}
               </option>
             ) : null
@@ -148,7 +168,10 @@ const TableCard = ({ tableNumber, onDelete }) => {
           onChange={(e) => setDrinkQty(Number(e.target.value))}
         >
           {[1, 2, 3, 4, 5].map((no) => (
-            <option key={no} value={no}>
+            <option
+              key={no}
+              value={no}
+            >
               {no}
             </option>
           ))}
@@ -175,7 +198,9 @@ const TableCard = ({ tableNumber, onDelete }) => {
           Clear Table
         </Button>
         <Button color="secondary">Pay Now</Button>
-        <p><strong>Total: ₹{total}</strong></p>
+        <p>
+          <strong>Total: ₹{total}</strong>
+        </p>
       </div>
     </div>
   );
