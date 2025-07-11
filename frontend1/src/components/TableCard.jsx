@@ -26,7 +26,7 @@ const coffeeMenu = [
 
 const TableCard = ({ tableNumber, onDelete }) => {
   const { drinks } = useContext(DrinkContext);
-  const { icecreame } = useContext(IcecreamContext);
+  const { icecream } = useContext(IcecreamContext);
 
   const [selectedCoffee, setSelectedCoffee] = useState('');
   const [coffeeQty, setCoffeeQty] = useState(1);
@@ -43,8 +43,7 @@ const TableCard = ({ tableNumber, onDelete }) => {
   };
 
   const coffeeTotal = coffeeQty * getItemPrice(coffeeMenu, selectedCoffee);
-  const iceCreamTotal =
-    iceCreamQty * getItemPrice(iceCreamMenu, selectedIceCream);
+  const iceCreamTotal = iceCreamQty * getItemPrice(icecream, selectedIceCream);
   const drinkTotal = drinkQty * getItemPrice(drinks || [], selectedDrink);
 
   const total = coffeeTotal + iceCreamTotal + drinkTotal;
@@ -112,7 +111,7 @@ const TableCard = ({ tableNumber, onDelete }) => {
           onChange={(e) => setSelectedIceCream(e.target.value)}
         >
           <option value="">Select Ice Cream</option>
-          {icecreame?.map((ic, index) =>
+          {icecream?.map((ic, index) =>
             ic?.name ? (
               <option
                 key={index}

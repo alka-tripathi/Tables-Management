@@ -17,4 +17,6 @@ app.listen(port, (req, res) => {
   console.log(`connect to ${port}`);
 });
 
-app.use('/api/restaurant', require('./Routes/GetDrinksData.js'));
+//app.use('/api/restaurant', require('./Routes/GetDrinksData.js'));
+app.use('/api/coffeedata', require('./Routes/GetDrinksData.js'));
+app.use('/api/icecream', require('./Routes/GetIceCreamData.js'));

@@ -10,14 +10,14 @@ export const IceCreamProvider = ({ children }) => {
   useEffect(() => {
     const fetchdata = async () => {
       try {
-        const res = await fetch('http://localhost:5000/api/icecreamdata');
+        const res = await fetch('http://localhost:5000/api/icecream');
         const data = await res.json();
         if (data.success) {
-          setIcecream(data.icecreamdata);
+          setIcecream(data.data);
         }
       } catch (err) {
         console.log(
-          'Error in fetching in context of Icecreame API:' + err.message
+          'Error in fetching in context of Icecream API:' + err.message
         );
       }
     };
