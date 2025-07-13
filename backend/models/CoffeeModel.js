@@ -18,4 +18,4 @@ const coffeeSchema = mongoose.Schema({
     required: true,
   },
 });
-module.exports = mongoose.model('Coffee', coffeeSchema);
+module.exports = mongoose.model('Coffee', coffeeSchema,'coffee_data');

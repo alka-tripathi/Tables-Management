@@ -13,16 +13,7 @@ const coffeeMenu = [
   { name: 'Mocha', price: 170 },
 ];
 
-// const iceCreamMenu = [
-//   { name: 'Vanilla Scoop', price: 80 },
-//   { name: 'Chocolate Chip', price: 90 },
-//   { name: 'Strawberry Swirl', price: 85 },
-//   { name: 'Butterscotch Delight', price: 95 },
-//   { name: 'Mango Mania', price: 100 },
-//   { name: 'Cookies & Cream', price: 110 },
-//   { name: 'Black Currant', price: 105 },
-//   { name: 'Kulfi Stick', price: 70 },
-// ];
+
 
 const TableCard = ({ tableNumber, onDelete }) => {
   const { drinks } = useContext(DrinkContext);

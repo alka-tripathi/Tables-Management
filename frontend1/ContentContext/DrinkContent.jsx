@@ -10,7 +10,7 @@ export const DrinkProvider = ({ children }) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await fetch('http://localhost:5000/api/coffeedata');
+        const res = await fetch('http://localhost:5000/api/drinkdata');
         const data = await res.json();
         if (data.success) {
           setDrinks(data.drinkdata);
