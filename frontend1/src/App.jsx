@@ -10,22 +10,24 @@ import 'bootstrap-dark-5/dist/css/bootstrap-dark.min.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { DrinkProvider } from '../ContentContext/DrinkContent';
 import { IceCreamProvider } from '../ContentContext/IceCreamContext';
-
+import { CoffeeProvider } from '../ContentContext/CoffeeContent';
 function App() {
   return (
-    <DrinkProvider>
-      <IceCreamProvider>
-        <Router>
-          <Navbar></Navbar>
-          <Routes>
-            <Route
-              path="/"
-              element={<Home></Home>}
-            ></Route>
-          </Routes>
-        </Router>
-      </IceCreamProvider>
-    </DrinkProvider>
+    <CoffeeProvider>
+      <DrinkProvider>
+        <IceCreamProvider>
+          <Router>
+            <Navbar></Navbar>
+            <Routes>
+              <Route
+                path="/"
+                element={<Home></Home>}
+              ></Route>
+            </Routes>
+          </Router>
+        </IceCreamProvider>
+      </DrinkProvider>
+    </CoffeeProvider>
   );
 }
 

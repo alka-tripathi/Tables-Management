@@ -5,7 +5,7 @@ export const CoffeeContext = createContext();
 export const CoffeeProvider = ({ children }) => {
   const [coffee, setCoffee] = useState([]);
 
-  useEffect(async () => {
+  useEffect(() => {
     const fetchdata = async () => {
       try {
         const res = await fetch('http://localhost:5000/api/coffeedata');

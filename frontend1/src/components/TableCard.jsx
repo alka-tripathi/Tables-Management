@@ -5,6 +5,7 @@ import TableBarIcon from '@mui/icons-material/TableBar';
 
 import { DrinkContext } from '../../ContentContext/DrinkContent';
 import { IcecreamContext } from '../../ContentContext/IceCreamContext';
+import { CoffeeContext } from '../../ContentContext/CoffeeContent';
 
 const coffeeMenu = [
   { name: 'Espresso', price: 120 },
@@ -18,6 +19,7 @@ const coffeeMenu = [
 const TableCard = ({ tableNumber, onDelete }) => {
   const { drinks } = useContext(DrinkContext);
   const { icecream } = useContext(IcecreamContext);
+  const {coffee} =useContext(CoffeeContext);
 
   const [selectedCoffee, setSelectedCoffee] = useState('');
   const [coffeeQty, setCoffeeQty] = useState(1);
@@ -33,7 +35,7 @@ const TableCard = ({ tableNumber, onDelete }) => {
     return item ? item.price : 0;
   };
 
-  const coffeeTotal = coffeeQty * getItemPrice(coffeeMenu, selectedCoffee);
+  const coffeeTotal = coffeeQty * getItemPrice(coffee, selectedCoffee);
   const iceCreamTotal = iceCreamQty * getItemPrice(icecream, selectedIceCream);
   const drinkTotal = drinkQty * getItemPrice(drinks || [], selectedDrink);
 
@@ -66,7 +68,7 @@ const TableCard = ({ tableNumber, onDelete }) => {
           onChange={(e) => setSelectedCoffee(e.target.value)}
         >
           <option value="">Select Coffee</option>
-          {coffeeMenu.map((coffee) => (
+          {coffee.map((coffee) => (
             <option
               key={coffee.name}
               value={coffee.name}

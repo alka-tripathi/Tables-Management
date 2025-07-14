@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import TableCard from './TableCard';
 
 function TableButton() {
-  const tableNumber = [1, 2, 3, 4, 5];
+  const tableNumber = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
   const [activeTables, setActiveTable] = useState([]);
   const handleTableClick = (tablenum) => {
     if (!activeTables.includes(tablenum)) {
@@ -43,12 +43,10 @@ function TableButton() {
           gap: '20px', // space between cards
           flexWrap: 'wrap', // allow wrapping to next line
           justifyContent: 'center', // optional: centers horizontally
-          
         }}
       >
         {activeTables.map((num) => (
           <TableCard
-           
             key={num}
             tableNumber={num}
             onDelete={handleDelete}
