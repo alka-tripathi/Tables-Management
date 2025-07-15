@@ -2,6 +2,7 @@ import React, { useState, useContext } from 'react';
 import Button from '@mui/material/Button';
 import DeleteIcon from '@mui/icons-material/Delete';
 import TableBarIcon from '@mui/icons-material/TableBar';
+import '../style/tablecard.css';
 
 import { DrinkContext } from '../../ContentContext/DrinkContent';
 import { IcecreamContext } from '../../ContentContext/IceCreamContext';
@@ -14,12 +15,10 @@ const coffeeMenu = [
   { name: 'Mocha', price: 170 },
 ];
 
-
-
 const TableCard = ({ tableNumber, onDelete }) => {
   const { drinks } = useContext(DrinkContext);
   const { icecream } = useContext(IcecreamContext);
-  const {coffee} =useContext(CoffeeContext);
+  const { coffee } = useContext(CoffeeContext);
 
   const [selectedCoffee, setSelectedCoffee] = useState('');
   const [coffeeQty, setCoffeeQty] = useState(1);
@@ -44,18 +43,25 @@ const TableCard = ({ tableNumber, onDelete }) => {
   return (
     <div
       style={{
-        border: '2px solid #cfd8dc',
+        border: '1.2px solid #1F509A',
+        // boxShadow:
+        //   'rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px',
+
+        boxShadow:
+          'rgba(14, 63, 126, 0.04) 0px 0px 0px 1px, rgba(42, 51, 69, 0.04) 0px 1px 1px -0.5px, rgba(42, 51, 70, 0.04) 0px 3px 3px -1.5px, rgba(42, 51, 70, 0.04) 0px 6px 6px -3px, rgba(14, 63, 126, 0.04) 0px 12px 12px -6px, rgba(14, 63, 126, 0.04) 0px 24px 24px -12px',
         padding: '10px',
         marginTop: '20px',
         width: '40%',
         minHeight: '50vh',
         display: 'flex',
         flexDirection: 'column',
+        color: 'white',
         justifyContent: 'space-evenly',
-        backgroundColor: '#b0bec5',
+        // backgroundColor: '#b0bec5',
+        // backgroundColor: '#113F67',
       }}
     >
-      <h3 style={{ color: '#263238' }}>
+      <h3 style={{ color: '#1F509A' }}>
         <TableBarIcon /> Table {tableNumber}
       </h3>
 
@@ -92,7 +98,7 @@ const TableCard = ({ tableNumber, onDelete }) => {
             </option>
           ))}
         </select>
-        <p>Total: ₹{coffeeTotal}</p>
+        <h6 style={{ color: '#1F509A' }}>Total: ₹{coffeeTotal}</h6>
       </div>
 
       {/* Ice Cream Section */}
@@ -130,7 +136,7 @@ const TableCard = ({ tableNumber, onDelete }) => {
             </option>
           ))}
         </select>
-        <p>Total: ₹{iceCreamTotal}</p>
+        <h6 style={{ color: '#1F509A' }}>Total: ₹{iceCreamTotal}</h6>
       </div>
 
       {/* Drinks Section */}
@@ -168,7 +174,7 @@ const TableCard = ({ tableNumber, onDelete }) => {
             </option>
           ))}
         </select>
-        <p>Total: ₹{drinkTotal}</p>
+        <h6 style={{ color: '#1F509A' }}>Total: ₹{drinkTotal}</h6>
       </div>
 
       {/* Final Total and Actions */}
@@ -191,7 +197,7 @@ const TableCard = ({ tableNumber, onDelete }) => {
         </Button>
         <Button color="secondary">Pay Now</Button>
         <p>
-          <strong>Total: ₹{total}</strong>
+          <h4 style={{ color: '#1F509A' }}>Total: ₹{total}</h4>
         </p>
       </div>
     </div>

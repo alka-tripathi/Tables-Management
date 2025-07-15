@@ -9,6 +9,7 @@ export default function Navbar() {
           <Link
             className="navbar-brand"
             to="/"
+            style={{color:"#344CB7"}}
           >
             BlueFram
           </Link>
