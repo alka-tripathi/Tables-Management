@@ -11,6 +11,9 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { DrinkProvider } from '../ContentContext/DrinkContent';
 import { IceCreamProvider } from '../ContentContext/IceCreamContext';
 import { CoffeeProvider } from '../ContentContext/CoffeeContent';
+import CoffeeMenu from './screens/CoffeeMenu';
+import IcecreamMenu from './screens/IcecreamMenu';
+import DrinkMenu from './screens/DrinkMenu';
 function App() {
   return (
     <CoffeeProvider>
@@ -22,6 +25,18 @@ function App() {
               <Route
                 path="/"
                 element={<Home></Home>}
+              ></Route>
+              <Route
+                path="/menu/coffee"
+                element={<CoffeeMenu></CoffeeMenu>}
+              ></Route>
+              <Route
+                path="/menu/icecream"
+                element={<IcecreamMenu></IcecreamMenu>}
+              ></Route>
+              <Route
+                path="/menu/drink"
+                element={<DrinkMenu></DrinkMenu>}
               ></Route>
             </Routes>
           </Router>

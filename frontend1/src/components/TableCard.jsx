@@ -59,6 +59,7 @@ const TableCard = ({ tableNumber, onDelete }) => {
         justifyContent: 'space-evenly',
         // backgroundColor: '#b0bec5',
         // backgroundColor: '#113F67',
+        background: '#F1F6F9',
       }}
     >
       <h3 style={{ color: '#1F509A' }}>
