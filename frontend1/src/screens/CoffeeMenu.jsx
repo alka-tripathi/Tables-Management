@@ -13,9 +13,14 @@ export default function CoffeeMenu() {
 
   // const [coffeedata,setcoffeedata]=useState()
   return (
-    <div>
+    <div style={{ background: '#C9B194' }}>
       <h1
-        style={{ textAlign: 'center', marginBottom: '20px', marginTop: '20px' }}
+        style={{
+          textAlign: 'center',
+          marginBottom: '20px',
+          paddingTop: '10px',
+          color: '#664343',
+        }}
       >
         COFFEE MENU
       </h1>
@@ -30,10 +35,10 @@ export default function CoffeeMenu() {
         {coffee.map((coffeeItem) => (
           <Card
             key={coffeeItem._id}
-            sx={{ maxWidth: 345 }}
+            sx={{ maxWidth: 400, width: '300px', marginBottom: '20px' }}
           >
             <CardMedia
-              sx={{ height: 140 }}
+              sx={{ height: 200 }}
               image={coffeeItem.imageUrl || 'https://via.placeholder.com/140'}
               title={coffeeItem.name}
             />
@@ -42,16 +47,14 @@ export default function CoffeeMenu() {
                 gutterBottom
                 variant="h5"
                 component="div"
+                style={{ color: '#543310', fontWeight: '300' }}
               >
-                {coffeeItem.name}
+                {coffeeItem.name} -₹{coffeeItem.price}
               </Typography>
               <Typography
                 variant="body2"
                 sx={{ color: 'text.secondary' }}
-              >
-                Lizards are a widespread group of squamate reptiles, with over
-                6,000 species, ranging across all continents except Antarctica
-              </Typography>
+              ></Typography>
             </CardContent>
             <CardActions>
               {/* <Button size="small">Rate</Button> */}
@@ -59,8 +62,6 @@ export default function CoffeeMenu() {
                 name="size-medium"
                 defaultValue={2}
               />
-
-              <Button size="small">{coffeeItem.price}</Button>
             </CardActions>
           </Card>
         ))}
