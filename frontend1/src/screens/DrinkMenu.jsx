@@ -9,13 +9,24 @@ import Typography from '@mui/material/Typography';
 import Rating from '@mui/material/Rating';
 
 export default function DrinkMenu() {
-  const { drink } = useContext(DrinkContext);
+  const { drinks } = useContext(DrinkContext);
 
   return (
     <div
-      style={{ textAlign: 'center', marginBottom: '20px', paddingTop: '10px' }}
+      style={{
+        background: '#FCB454',
+      }}
     >
-      <h1>DRINK MENU</h1>
+      <h1
+        style={{
+          textAlign: 'center',
+          marginBottom: '20px',
+          paddingTop: '10px',
+          color: 'white',
+        }}
+      >
+        DRINK MENU
+      </h1>
       <div
         style={{
           display: 'flex',
@@ -24,13 +35,13 @@ export default function DrinkMenu() {
           flexWrap: 'wrap',
         }}
       >
-        {drink.map((drinkItem) => (
+        {drinks.map((drinkItem) => (
           <Card
             key={drinkItem._id}
             sx={{ maxWidth: 400, width: '300px', marginBottom: '20px' }}
           >
             <CardMedia
-              sx={{ height: 200 }}
+              sx={{ height: 300 }}
               image={drinkItem.imageUrl || 'https://via.placeholder.com/140'}
               title={drinkItem.name}
             />
@@ -39,7 +50,7 @@ export default function DrinkMenu() {
                 gutterBottom
                 variant="h5"
                 component="div"
-                style={{ color: '#543310', fontWeight: '300' }}
+                style={{ color: '#D5451B', fontWeight: '500' }}
               >
                 {drinkItem.name} -₹{drinkItem.price}
               </Typography>
