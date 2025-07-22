@@ -3,6 +3,7 @@ import TableButton from '../components/TableButton';
 import ImageSlider from '../components/ImageSlider';
 import RoofingIcon from '@mui/icons-material/Roofing';
 import AutoAwesomeIcon from '@mui/icons-material/AutoAwesome';
+// import Footer from '../components/Footer';
 
 export default function Home() {
   return (
@@ -32,7 +33,9 @@ export default function Home() {
           marginBottom: '30px',
         }}
       >
-        <AutoAwesomeIcon style={{ marginRight: '13px' ,color: '#FFCC00'}}></AutoAwesomeIcon>
+        <AutoAwesomeIcon
+          style={{ marginRight: '13px', color: '#FFCC00' }}
+        ></AutoAwesomeIcon>
         Where <strong>body</strong> + <strong>soul</strong> get relaxed{' '}
         <AutoAwesomeIcon
           style={{ marginLeft: '13px', color: '#FFCC00' }}

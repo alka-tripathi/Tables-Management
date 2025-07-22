@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Menu, MenuItem, Button } from '@mui/material';
 
-export default function Navbar() {
+export default function Navbar({ customHeight }) {
   const [anchorEl, setAnchorEl] = React.useState(null);
 
   const handleClick = (event) => {
@@ -14,7 +14,10 @@ export default function Navbar() {
 
   return (
     <div>
-      <nav className="navbar navbar-expand-lg bg-dark navbar-dark">
+      <nav
+        className="navbar navbar-expand-lg bg-dark navbar-dark"
+        style={{ height: customHeight || '60px' }}
+      >
         <div className="container-fluid">
           <Link
             className="navbar-brand"

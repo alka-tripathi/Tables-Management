@@ -6,6 +6,7 @@ import Home from './screens/Home';
 import Navbar from './components/Navbar';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 import 'bootstrap-dark-5/dist/css/bootstrap-dark.min.css';
+import AboutUs from './components/AboutUs';
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { DrinkProvider } from '../ContentContext/DrinkContent';
@@ -25,6 +26,10 @@ function App() {
               <Route
                 path="/"
                 element={<Home></Home>}
+              ></Route>
+              <Route
+                path="/aboutus"
+                element={<AboutUs></AboutUs>}
               ></Route>
               <Route
                 path="/menu/coffee"
