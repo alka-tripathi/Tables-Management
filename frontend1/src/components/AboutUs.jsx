@@ -24,7 +24,7 @@ export default function AboutUs() {
         style={{
           width: '80%',
           minHeight: '60vh',
-          backgroundColor: 'pink',
+          backgroundColor: '#D7D7D7',
           margin: '40px auto',
           display: 'flex',
           flexWrap: 'wrap',
@@ -39,25 +39,25 @@ export default function AboutUs() {
           component="img"
           sx={{
             height: '300px',
-            width: '300px',
+            width: '340px',
             borderRadius: '10px',
           }}
           alt="Ice cream & coffee"
-          src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&w=350&dpr=2"
+          src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80"
         />
 
         <div
           style={{
             flex: '1 1 300px',
-            backgroundColor: 'yellow',
+            backgroundColor: '#58A0C8',
             padding: '20px',
             borderRadius: '10px',
             textAlign: 'left',
           }}
         >
-          <h4>
-            Welcome to <strong>Your Café Name</strong> — the perfect hangout
-            spot for ice cream lovers, coffee enthusiasts, and chill vibes!
+          <h5>
+            Welcome to <strong>BLUE FARM</strong> — the perfect hangout spot for
+            ice cream lovers, coffee enthusiasts, and chill vibes!
             <br />
             <br />
             We’re all about serving happiness in scoops and sips. Whether you're
@@ -71,7 +71,63 @@ export default function AboutUs() {
             <br />
             <br />
             Stop by, grab a seat, and sip into something amazing! ☕🍦
-          </h4>
+            <br />
+            <br />
+          </h5>
+        </div>
+      </div>
+      <div
+        style={{
+          width: '80%',
+          minHeight: '60vh',
+          backgroundColor: '#D7D7D7',
+          margin: '40px auto',
+          display: 'flex',
+          flexWrap: 'wrap',
+          justifyContent: 'center',
+          alignItems: 'center',
+          gap: '30px',
+          padding: '20px',
+          borderRadius: '10px',
+        }}
+      >
+        <Box
+          component="img"
+          sx={{
+            height: '300px',
+            width: '340px',
+            borderRadius: '10px',
+          }}
+          alt="Ice cream & coffee"
+          src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80"
+        />
+
+        <div
+          style={{
+            flex: '1 1 300px',
+            backgroundColor: '#58A0C8',
+            padding: '20px',
+            borderRadius: '10px',
+            textAlign: 'left',
+          }}
+        >
+          <h5>
+            <strong>About the Creator</strong>
+            <br />
+            This website was lovingly crafted by <strong>Alka Tripathi</strong>,
+            a B.Tech student at United Institute of Technology (AKTU). She's
+            passionate about web development, design, and creating smooth user
+            experiences.
+            <br />
+            <br />
+            Whether she's building full-stack applications or experimenting with
+            creative front-end ideas, Alka loves turning concepts into clean and
+            functional web projects.
+            <br />
+            <br />
+            Fueled by coffee and curiosity, she's always learning and creating —
+            one line of code at a time! 💻✨
+          </h5>
         </div>
       </div>
     </div>
