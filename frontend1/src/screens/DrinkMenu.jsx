@@ -7,6 +7,7 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Rating from '@mui/material/Rating';
+import Footer from '../components/Footer';
 
 export default function DrinkMenu() {
   const { drinks } = useContext(DrinkContext);
@@ -69,6 +70,7 @@ export default function DrinkMenu() {
           </Card>
         ))}
       </div>
+      <Footer></Footer>
     </div>
   );
 }

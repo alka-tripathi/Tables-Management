@@ -8,6 +8,7 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Rating from '@mui/material/Rating';
+import Footer from '../components/Footer';
 
 export default function IcecreamMenu() {
   const { icecream } = useContext(IcecreamContext);
@@ -65,6 +66,7 @@ export default function IcecreamMenu() {
           </Card>
         ))}
       </div>
+      <Footer></Footer>
     </div>
   );
 }

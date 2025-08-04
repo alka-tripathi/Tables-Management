@@ -2,6 +2,8 @@ import React from 'react';
 import Navbar from './Navbar';
 import Cards from './Cards';
 import Box from '@mui/material/Box';
+import myPhoto from '../ImagesAssets/alkaProfile.jpg';
+import Footer from './Footer.jsx';
 
 export default function AboutUs() {
   return (
@@ -14,8 +16,8 @@ export default function AboutUs() {
           alignItems: 'center',
 
           color: 'white',
+          background: '#393E46',
         }}
-        className="bg-black"
       >
         <h2>ABOUT US</h2>
       </div>
@@ -53,6 +55,8 @@ export default function AboutUs() {
             padding: '20px',
             borderRadius: '10px',
             textAlign: 'left',
+            boxShadow:
+              'rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset',
           }}
         >
           <h5>
@@ -89,17 +93,19 @@ export default function AboutUs() {
           gap: '30px',
           padding: '20px',
           borderRadius: '10px',
+          marginBottom: '200px',
         }}
       >
         <Box
           component="img"
           sx={{
-            height: '300px',
-            width: '340px',
+            height: '320px',
+            width: '320px',
             borderRadius: '10px',
+            position: 'center',
           }}
           alt="Ice cream & coffee"
-          src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80"
+          src={myPhoto}
         />
 
         <div
@@ -109,6 +115,8 @@ export default function AboutUs() {
             padding: '20px',
             borderRadius: '10px',
             textAlign: 'left',
+            boxShadow:
+              'rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset',
           }}
         >
           <h5>
@@ -130,6 +138,7 @@ export default function AboutUs() {
           </h5>
         </div>
       </div>
+      <Footer></Footer>
     </div>
   );
 }

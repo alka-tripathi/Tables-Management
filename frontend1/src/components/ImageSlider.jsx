@@ -14,13 +14,25 @@ const items = [
     name: 'Ice Cream',
     description: 'Cold and sweet dessert',
     image:
-      'https://tse4.mm.bing.net/th/id/OIP.bPEX67aysQH1_dz1n_x85wHaE7?r=0&w=1024&h=682&rs=1&pid=ImgDetMain&o=7&rm=3',
+      'https://static.vecteezy.com/system/resources/previews/024/677/423/non_2x/keeping-of-ice-cream-flavor-whit-unused-blueberry-strawberry-kiwi-lemon-vanilla-setup-on-common-foundation-creative-resource-ai-generated-photo.jpeg',
   },
   {
     name: 'Drinks',
     description: 'Refresh yourself',
     image:
       'https://static.vecteezy.com/system/resources/previews/001/903/512/non_2x/assorted-soft-drinks-free-photo.jpg',
+  },
+  {
+    name: 'Coffee',
+    description: 'A hot beverage to boost your energy',
+    image:
+      'https://images.pexels.com/photos/434213/pexels-photo-434213.jpeg?cs=srgb&dl=aroma-aromatic-art-434213.jpg&fm=jpg',
+  },
+  {
+    name: 'Ice Cream',
+    description: 'Cold and sweet dessert',
+    image:
+      'https://www.biggerbolderbaking.com/wp-content/uploads/2020/01/2-Ingredient-Ice-cream-Thumbnail-scaled.jpg',
   },
 ];
 

@@ -7,6 +7,7 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { CoffeeContext } from '../../ContentContext/CoffeeContent';
 import Rating from '@mui/material/Rating';
+import Footer from '../components/Footer';
 
 export default function CoffeeMenu() {
   const { coffee } = useContext(CoffeeContext);
@@ -66,6 +67,7 @@ export default function CoffeeMenu() {
           </Card>
         ))}
       </div>
+      <Footer></Footer>
     </div>
   );
 }

@@ -3,6 +3,7 @@ import TableButton from '../components/TableButton';
 import ImageSlider from '../components/ImageSlider';
 import RoofingIcon from '@mui/icons-material/Roofing';
 import AutoAwesomeIcon from '@mui/icons-material/AutoAwesome';
+
 // import Footer from '../components/Footer';
 
 export default function Home() {
