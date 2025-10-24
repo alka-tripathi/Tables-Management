@@ -1,5 +1,89 @@
-.coffee-select:focus{
-    border:2px solid white;
-    outline:none;
-    
+.table-card {
+  border: 1.5px solid #1F509A;
+  border-radius: 10px;
+  padding: 15px;
+  margin-top: 20px;
+  width: 40%;
+  min-height: 50vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  background: #f1f6f9;
+  box-shadow:
+    rgba(14, 63, 126, 0.04) 0px 0px 0px 1px,
+    rgba(42, 51, 70, 0.04) 0px 1px 1px -0.5px,
+    rgba(42, 51, 70, 0.04) 0px 3px 3px -1.5px;
+}
+
+.table-card-title {
+  color: #1F509A;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.item-section {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 15px;
+  flex-wrap: wrap;
+}
+
+.item-section select {
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid #1F509A;
+  flex: 1 1 50%;
+}
+
+.qty-select {
+  max-width: 60px;
+  flex: 0 0 auto;
+}
+
+.item-total {
+  color: #1F509A;
+  font-weight: 500;
+  min-width: 60px;
+  text-align: center;
+}
+
+.table-card-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+.table-card-actions h4 {
+  color: #1F509A;
+  margin-top: 10px;
+}
+
+/* ----------------- Responsive ----------------- */
+@media (max-width: 992px) {
+  .table-card {
+    width: 70%;
+  }
+  .item-section select {
+    flex: 1 1 60%;
+  }
+}
+
+@media (max-width: 600px) {
+  .table-card {
+    width: 95%;
+    padding: 10px;
+  }
+  .item-section {
+    flex-direction: column;
+    gap: 5px;
+  }
+  .table-card-actions {
+    flex-direction: column;
+    gap: 10px;
+  }
 }

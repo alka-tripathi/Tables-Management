@@ -8,13 +8,6 @@ import { DrinkContext } from '../../ContentContext/DrinkContent';
 import { IcecreamContext } from '../../ContentContext/IceCreamContext';
 import { CoffeeContext } from '../../ContentContext/CoffeeContent';
 
-const coffeeMenu = [
-  { name: 'Espresso', price: 120 },
-  { name: 'Latte', price: 150 },
-  { name: 'Cappuccino', price: 160 },
-  { name: 'Mocha', price: 170 },
-];
-
 const TableCard = ({ tableNumber, onDelete }) => {
   const { drinks } = useContext(DrinkContext);
   const { icecream } = useContext(IcecreamContext);
@@ -41,52 +34,30 @@ const TableCard = ({ tableNumber, onDelete }) => {
   const total = coffeeTotal + iceCreamTotal + drinkTotal;
 
   return (
-    <div
-      style={{
-        border: '1.2px solid #1F509A',
-        // boxShadow:
-        //   'rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px',
-
-        boxShadow:
-          'rgba(14, 63, 126, 0.04) 0px 0px 0px 1px, rgba(42, 51, 69, 0.04) 0px 1px 1px -0.5px, rgba(42, 51, 70, 0.04) 0px 3px 3px -1.5px, rgba(42, 51, 70, 0.04) 0px 6px 6px -3px, rgba(14, 63, 126, 0.04) 0px 12px 12px -6px, rgba(14, 63, 126, 0.04) 0px 24px 24px -12px',
-        padding: '10px',
-        marginTop: '20px',
-        width: '40%',
-        minHeight: '50vh',
-        display: 'flex',
-        flexDirection: 'column',
-        color: 'white',
-        justifyContent: 'space-evenly',
-        // backgroundColor: '#b0bec5',
-        // backgroundColor: '#113F67',
-        background: '#F1F6F9',
-      }}
-    >
-      <h3 style={{ color: '#1F509A' }}>
+    <div className="table-card">
+      <h3 className="table-card-title">
         <TableBarIcon /> Table {tableNumber}
       </h3>
 
       {/* Coffee Section */}
-      <div style={{ display: 'flex', justifyContent: 'space-evenly' }}>
+      <div className="item-section">
         <select
           className="form-select"
-          style={{ width: '50%' }}
           value={selectedCoffee}
           onChange={(e) => setSelectedCoffee(e.target.value)}
         >
           <option value="">Select Coffee</option>
-          {coffee.map((coffee) => (
+          {coffee.map((c) => (
             <option
-              key={coffee.name}
-              value={coffee.name}
+              key={c.name}
+              value={c.name}
             >
-              {coffee.name} - ₹{coffee.price}
+              {c.name} - ₹{c.price}
             </option>
           ))}
         </select>
         <select
-          className="form-select"
-          style={{ width: '13%' }}
+          className="form-select qty-select"
           value={coffeeQty}
           onChange={(e) => setCoffeeQty(Number(e.target.value))}
         >
@@ -99,32 +70,31 @@ const TableCard = ({ tableNumber, onDelete }) => {
             </option>
           ))}
         </select>
-        <h6 style={{ color: '#1F509A' }}>Total: ₹{coffeeTotal}</h6>
+        <span className="item-total">₹{coffeeTotal}</span>
       </div>
 
       {/* Ice Cream Section */}
-      <div style={{ display: 'flex', justifyContent: 'space-evenly' }}>
+      <div className="item-section">
         <select
           className="form-select"
-          style={{ width: '50%' }}
           value={selectedIceCream}
           onChange={(e) => setSelectedIceCream(e.target.value)}
         >
           <option value="">Select Ice Cream</option>
-          {icecream?.map((ic, index) =>
-            ic?.name ? (
-              <option
-                key={index}
-                value={ic.name}
-              >
-                {ic.name} - ₹{ic.price}
-              </option>
-            ) : null
+          {icecream?.map(
+            (ic, idx) =>
+              ic?.name && (
+                <option
+                  key={idx}
+                  value={ic.name}
+                >
+                  {ic.name} - ₹{ic.price}
+                </option>
+              )
           )}
         </select>
         <select
-          className="form-select"
-          style={{ width: '13%' }}
+          className="form-select qty-select"
           value={iceCreamQty}
           onChange={(e) => setIceCreamQty(Number(e.target.value))}
         >
@@ -137,32 +107,31 @@ const TableCard = ({ tableNumber, onDelete }) => {
             </option>
           ))}
         </select>
-        <h6 style={{ color: '#1F509A' }}>Total: ₹{iceCreamTotal}</h6>
+        <span className="item-total">₹{iceCreamTotal}</span>
       </div>
 
       {/* Drinks Section */}
-      <div style={{ display: 'flex', justifyContent: 'space-evenly' }}>
+      <div className="item-section">
         <select
           className="form-select"
-          style={{ width: '50%' }}
           value={selectedDrink}
           onChange={(e) => setSelectedDrink(e.target.value)}
         >
           <option value="">Select Drink</option>
-          {drinks?.map((drink, index) =>
-            drink?.name ? (
-              <option
-                key={index}
-                value={drink.name}
-              >
-                {drink.name} - ₹{drink.price}
-              </option>
-            ) : null
+          {drinks?.map(
+            (d, idx) =>
+              d?.name && (
+                <option
+                  key={idx}
+                  value={d.name}
+                >
+                  {d.name} - ₹{d.price}
+                </option>
+              )
           )}
         </select>
         <select
-          className="form-select"
-          style={{ width: '13%' }}
+          className="form-select qty-select"
           value={drinkQty}
           onChange={(e) => setDrinkQty(Number(e.target.value))}
         >
@@ -175,31 +144,25 @@ const TableCard = ({ tableNumber, onDelete }) => {
             </option>
           ))}
         </select>
-        <h6 style={{ color: '#1F509A' }}>Total: ₹{drinkTotal}</h6>
+        <span className="item-total">₹{drinkTotal}</span>
       </div>
 
-      {/* Final Total and Actions */}
-      <div
-        style={{
-          display: 'flex',
-          justifyContent: 'center',
-          gap: '10px',
-          alignItems: 'center',
-          marginTop: '10px',
-        }}
-      >
+      {/* Total & Actions */}
+      <div className="table-card-actions">
         <Button
           variant="outlined"
           startIcon={<DeleteIcon />}
-          style={{ color: '#263238', border: '1px solid #263238' }}
           onClick={() => onDelete(tableNumber)}
         >
-          Clear Table
+          Clear
         </Button>
-        <Button color="secondary">Pay Now</Button>
-        <p>
-          <h4 style={{ color: '#1F509A' }}>Total: ₹{total}</h4>
-        </p>
+        <Button
+          variant="contained"
+          color="secondary"
+        >
+          Pay Now
+        </Button>
+        <h4>Total: ₹{total}</h4>
       </div>
     </div>
   );
