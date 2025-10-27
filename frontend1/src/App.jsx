@@ -6,6 +6,9 @@ import Home from './screens/Home';
 import Navbar from './components/Navbar';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 import 'bootstrap-dark-5/dist/css/bootstrap-dark.min.css';
+
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import AboutUs from './components/AboutUs';
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
@@ -15,6 +18,9 @@ import { CoffeeProvider } from '../ContentContext/CoffeeContent';
 import CoffeeMenu from './screens/CoffeeMenu';
 import IcecreamMenu from './screens/IcecreamMenu';
 import DrinkMenu from './screens/DrinkMenu';
+import Form from './screens/Form.jsx';
+import allFeedbacks from './screens/allFeedbacks.jsx';
+
 function App() {
   return (
     <CoffeeProvider>
@@ -43,7 +49,20 @@ function App() {
                 path="/menu/drink"
                 element={<DrinkMenu></DrinkMenu>}
               ></Route>
+
+              <Route
+                path="/addfeedback"
+                element={<Form></Form>}
+              ></Route>
+              <Route
+                path="/allfeedback"
+                element={<allFeedbacks></allFeedbacks>}
+              ></Route>
             </Routes>
+            <ToastContainer
+              position="top-center"
+              autoClose={2000}
+            />
           </Router>
         </IceCreamProvider>
       </DrinkProvider>
