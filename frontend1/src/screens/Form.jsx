@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import '../style/feedback.css'; // Optional for styling
-import { toast } from 'react-toastify'; // Optional if using toast notifications
+import '../style/feedback.css';
+import { toast } from 'react-toastify';
 
 export default function FeedbackForm() {
   const [formData, setFormData] = useState({
@@ -15,24 +15,51 @@ export default function FeedbackForm() {
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!formData.name || !formData.email || !formData.feedback) {
+    // Basic validation
+    if (
+      !formData.name ||
+      !formData.email ||
+      !formData.feedback ||
+      !formData.rating
+    ) {
       toast.error('Please fill out all required fields!');
       return;
     }
 
-    console.log('Feedback submitted:', formData);
-    toast.success('Thank you for your feedback!');
+    try {
+      // Send POST request to backend
+      const response = await fetch('http://localhost:5000/api/feedback', {
+        // 👈 Update this URL if needed
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
 
-    // Reset the form
-    setFormData({
-      name: '',
-      email: '',
-      feedback: '',
-      rating: '',
-    });
+      const data = await response.json();
+
+      if (response.ok) {
+        toast.success(data.message || 'Feedback submitted successfully!');
+        console.log('Saved feedback:', data.data);
+
+        // Reset form
+        setFormData({
+          name: '',
+          email: '',
+          feedback: '',
+          rating: '',
+        });
+      } else {
+        toast.error(data.error || 'Something went wrong!');
+      }
+    } catch (error) {
+      console.error('Error submitting feedback:', error);
+      toast.error('Server error. Please try again later.');
+    }
   };
 
   return (

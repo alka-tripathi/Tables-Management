@@ -8,14 +8,14 @@ export default function AllFeedback() {
 
   useEffect(() => {
     axios
-      .get('http://localhost:5000/api/allfeedback') // 👈 your backend API endpoint
+      .get('http://localhost:5173/addfeedback') // 👈 your backend API endpoint
       .then((res) => {
         setFeedback(res.data.data); // Accessing "data" from response
         setLoading(false);
       })
       .catch((err) => {
         console.error('Error fetching feedback:', err);
-        setError('Failed to load feedback');
+        setError('Failed to load feedbacks');
         setLoading(false);
       });
   }, []);

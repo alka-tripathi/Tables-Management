@@ -19,7 +19,7 @@ import CoffeeMenu from './screens/CoffeeMenu';
 import IcecreamMenu from './screens/IcecreamMenu';
 import DrinkMenu from './screens/DrinkMenu';
 import Form from './screens/Form.jsx';
-import allFeedbacks from './screens/allFeedbacks.jsx';
+import AllFeedbacks from './screens/allFeedbacks.jsx';
 
 function App() {
   return (
@@ -56,7 +56,7 @@ function App() {
               ></Route>
               <Route
                 path="/allfeedback"
-                element={<allFeedbacks></allFeedbacks>}
+                element={<AllFeedbacks></AllFeedbacks>}
               ></Route>
             </Routes>
             <ToastContainer

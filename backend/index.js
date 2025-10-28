@@ -22,4 +22,6 @@ app.listen(port, (req, res) => {
 app.use('/api/drinkdata', require('./Routes/GetDrinksData.js'));
 app.use('/api/icecream', require('./Routes/GetIceCreamData.js'));
 app.use('/api/coffeedata', require('./Routes/GetCoffeeData.js'));
-app.use('./api/feedback', require('./Routes/feedback.js'));
+//app.use('./api/feedback', require('./Routes/feedback.js'));
+app.use('./api/addfeedback', require('./Routes/feedback.js'));
+app.use('./api/allfeedback', require('./Routes/feedback.js'));
